@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mateus Souza de Menezes | Desenvolvedor Full Stack</title>
+  <meta name="description" content="Portfólio profissional de Mateus Souza de Menezes, Desenvolvedor Full Stack e Especialista em Automação." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: {
+              950: '#05070A',
+              900: '#0A0E14',
+              800: '#0F1622',
+              700: '#152033'
+            },
+            accent: {
+              400: '#4FD1C5',
+              500: '#14B8A6',
+              600: '#0D9488'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(79, 209, 197, 0.2), 0 20px 50px -20px rgba(20, 184, 166, 0.45)'
+          },
+          animation: {
+            floaty: 'floaty 5s ease-in-out infinite',
+            pulseSoft: 'pulseSoft 3.5s ease-in-out infinite'
+          },
+          keyframes: {
+            floaty: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' }
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.9' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(20, 184, 166, 0.16), transparent 34%),
+        radial-gradient(circle at 90% 18%, rgba(56, 189, 248, 0.11), transparent 32%),
+        radial-gradient(circle at 35% 85%, rgba(13, 148, 136, 0.14), transparent 30%),
+        #05070A;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: radial-gradient(#ffffff 0.6px, transparent 0.6px);
+      background-size: 3px 3px;
+      z-index: 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .type-cursor {
+      border-right: 2px solid #4FD1C5;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { border-color: #4FD1C5; }
+      51%, 100% { border-color: transparent; }
+    }
+
+    .timeline-line {
+      background: linear-gradient(to bottom, rgba(79, 209, 197, 0), rgba(79, 209, 197, 0.8), rgba(79, 209, 197, 0));
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans relative">
+  <div class="relative z-10">
+    <header class="sticky top-0 z-50 bg-ink-950/75 backdrop-blur-xl border-b border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="#inicio" class="text-lg sm:text-xl font-semibold tracking-wide">Mateus <span class="text-accent-400">Menezes</span></a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+            <a href="#sobre" class="hover:text-white transition" data-i18n="nav.about">Sobre</a>
+            <a href="#habilidades" class="hover:text-white transition" data-i18n="nav.skills">Habilidades</a>
+            <a href="#experiencia" class="hover:text-white transition" data-i18n="nav.experience">Experiência</a>
+            <a href="#projetos" class="hover:text-white transition" data-i18n="nav.projects">Projetos</a>
+            <a href="#contato" class="hover:text-white transition" data-i18n="nav.contact">Contato</a>
+          </nav>
+          <div class="flex items-center gap-2">
+            <button id="langToggle" class="px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 text-xs font-semibold tracking-wider transition" aria-label="Trocar idioma">
+              EN
+            </button>
+            <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-700 hover:border-slate-500 transition" aria-label="Abrir menu">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800/70 bg-ink-900/95">
+        <div class="px-4 py-3 flex flex-col gap-3 text-slate-300">
+          <a href="#sobre" class="mobile-link hover:text-white transition" data-i18n="nav.about">Sobre</a>
+          <a href="#habilidades" class="mobile-link hover:text-white transition" data-i18n="nav.skills">Habilidades</a>
+          <a href="#experiencia" class="mobile-link hover:text-white transition" data-i18n="nav.experience">Experiência</a>
+          <a href="#projetos" class="mobile-link hover:text-white transition" data-i18n="nav.projects">Projetos</a>
+          <a href="#contato" class="mobile-link hover:text-white transition" data-i18n="nav.contact">Contato</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="pt-20 sm:pt-24 pb-16 sm:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                Mateus Souza de Menezes
+              </h1>
+              <p class="mt-3 text-lg sm:text-xl text-slate-300">
+                <span id="typewriter" class="type-cursor pr-1"></span>
+              </p>
+              <p class="mt-6 text-slate-300 leading-relaxed max-w-xl" data-i18n="hero.description">
+                Crio sistemas escaláveis com foco em performance, automação inteligente e integração entre dados, APIs e experiências digitais.
+              </p>
+
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a href="Mateus-Souza-de-Menezes-Curriculo.pdf" download class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold transition shadow-glow">
+                  <i data-lucide="download" class="w-4 h-4"></i>
+                  <span data-i18n="hero.download">Baixar Currículo PDF</span>
+                </a>
+                <a href="#projetos" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-600 hover:border-slate-400 hover:bg-slate-800/40 transition font-medium">
+                  <i data-lucide="folder-open" class="w-4 h-4"></i>
+                  <span data-i18n="hero.projects">Ver Projetos</span>
+                </a>
+                <a href="https://wa.me/5531995792624?text=Ol%C3%A1%20Mateus,%20vim%20pelo%20seu%20portf%C3%B3lio!" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-emerald-400/40 text-emerald-300 hover:bg-emerald-400/10 transition font-medium">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span data-i18n="hero.whatsapp">Falar no WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal lg:justify-self-end">
+              <div class="glass rounded-2xl p-6 sm:p-8 border-slate-700/60">
+                <div class="space-y-4">
+                  <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-700/70 animate-floaty">
+                    <p class="text-xs uppercase tracking-wider text-slate-400" data-i18n="metrics.experience">Experiência</p>
+                    <p class="text-xl font-semibold mt-1">+3 anos</p>
+                  </div>
+                  <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-700/70 animate-floaty" style="animation-delay: 0.6s;">
+                    <p class="text-xs uppercase tracking-wider text-slate-400" data-i18n="metrics.automationsLabel">Automações entregues</p>
+                    <p class="text-xl font-semibold mt-1" data-i18n="metrics.automationsValue">Dezenas de soluções</p>
+                  </div>
+                  <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-700/70 animate-floaty" style="animation-delay: 1.1s;">
+                    <p class="text-xs uppercase tracking-wider text-slate-400" data-i18n="metrics.mindsetLabel">Mentalidade</p>
+                    <p class="text-xl font-semibold mt-1" data-i18n="metrics.mindsetValue">100% foco em escalabilidade</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="py-16 sm:py-24 border-y border-slate-800/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl reveal">
+            <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="about.title">Sobre Mim</h2>
+            <p class="mt-6 text-slate-300 leading-relaxed" data-i18n="about.p1">
+              Sou Desenvolvedor Full Stack com foco sólido em backend, automação de dados e construção de soluções inteligentes para ambientes de alta demanda. Minha atuação combina desenvolvimento de APIs, pipelines escaláveis e automações que eliminam tarefas operacionais repetitivas.
+            </p>
+            <p class="mt-4 text-slate-300 leading-relaxed" data-i18n="about.p2">
+              Tenho formação técnica em Desenvolvimento de Sistemas pelo COTEMIG e estou cursando Análise e Desenvolvimento de Sistemas na Anhanguera, com conclusão prevista para 2027. Meu objetivo é transformar problemas complexos em produtos confiáveis, rápidos e orientados a resultado.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="habilidades" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="skills.title">Habilidades Técnicas</h2>
+            <p class="mt-3 text-slate-400" data-i18n="skills.subtitle">Stack orientada a performance, integrações e automação avançada.</p>
+          </div>
+
+          <div class="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <article class="interactive-card reveal glass rounded-2xl p-6 border-slate-700/60">
+              <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="code-2" class="w-5 h-5 text-accent-400"></i>
+                <h3 class="font-semibold" data-i18n="skills.languages">Linguagens</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">TypeScript</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">JavaScript (ES6+)</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Python</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">PHP</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">C#</span>
+              </div>
+            </article>
+
+            <article class="interactive-card reveal glass rounded-2xl p-6 border-slate-700/60">
+              <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="server-cog" class="w-5 h-5 text-accent-400"></i>
+                <h3 class="font-semibold" data-i18n="skills.backend">Ferramentas & Backend</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Node.js</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">n8n</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Git</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">APIs RESTful</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Web Scraping Avançado</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Crawlers</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Arquitetura de Software</span>
+              </div>
+            </article>
+
+            <article class="interactive-card reveal glass rounded-2xl p-6 border-slate-700/60">
+              <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="sparkles" class="w-5 h-5 text-accent-400"></i>
+                <h3 class="font-semibold" data-i18n="skills.ai">IA & Inovação</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Engenharia de Prompts</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">LLMs</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/70 border border-slate-700 text-sm">Automações Inteligentes</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiencia" class="py-16 sm:py-24 border-y border-slate-800/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="reveal">
+            <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="experience.title">Experiência Profissional</h2>
+            <p class="mt-3 text-slate-400" data-i18n="experience.subtitle">Linha do tempo com foco em backend, dados e automação de processos.</p>
+          </div>
+
+          <div class="mt-10 relative">
+            <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px timeline-line"></div>
+
+            <div class="space-y-8">
+              <article class="reveal md:grid md:grid-cols-2 md:gap-8 items-center">
+                <div class="md:text-right md:pr-8">
+                  <span class="inline-block text-xs uppercase tracking-widest text-accent-400" data-i18n="experience.current">Atual</span>
+                  <h3 class="mt-2 text-xl font-semibold">PiniOn</h3>
+                  <p class="text-slate-400" data-i18n="experience.role">Desenvolvedor Backend & Especialista em Automação</p>
+                </div>
+                <div class="mt-4 md:mt-0 md:pl-8">
+                  <div class="glass rounded-xl p-5 border-slate-700/60 interactive-card">
+                    <p class="text-slate-300 leading-relaxed" data-i18n="experience.pinionDesc">
+                      Desenvolvimento de backend e APIs RESTful, criação de pipelines de dados e automações para plataformas de inteligência de mercado, priorizando desempenho e confiabilidade operacional.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="reveal md:grid md:grid-cols-2 md:gap-8 items-center">
+                <div class="md:order-2 md:pl-8">
+                  <span class="inline-block text-xs uppercase tracking-widest text-accent-400" data-i18n="experience.years">3 anos</span>
+                  <h3 class="mt-2 text-xl font-semibold">Price Survey</h3>
+                  <p class="text-slate-400" data-i18n="experience.role">Desenvolvedor Backend & Especialista em Automação</p>
+                </div>
+                <div class="mt-4 md:mt-0 md:order-1 md:pr-8">
+                  <div class="glass rounded-xl p-5 border-slate-700/60 interactive-card">
+                    <p class="text-slate-300 leading-relaxed" data-i18n="experience.priceDesc">
+                      Construção de estruturas de Web Scraping em alta escala, robôs e crawlers robustos, além de fluxos automatizados em n8n e Node.js para remover gargalos manuais e acelerar entregas de dados.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="projects.title">Projetos de Destaque</h2>
+              <p class="mt-3 text-slate-400" data-i18n="projects.subtitle">Soluções orientadas a automação e impacto direto no negócio.</p>
+            </div>
+            <div class="flex flex-wrap gap-2" id="projectFilters">
+              <button data-filter="all" class="filter-btn px-4 py-2 rounded-lg text-sm border border-slate-600 bg-slate-800/70" data-i18n="projects.filterAll">Todos</button>
+              <button data-filter="automacao" class="filter-btn px-4 py-2 rounded-lg text-sm border border-slate-700 hover:border-slate-500" data-i18n="projects.filterAutomation">Automação</button>
+              <button data-filter="fullstack" class="filter-btn px-4 py-2 rounded-lg text-sm border border-slate-700 hover:border-slate-500" data-i18n="projects.filterFullStack">Full Stack</button>
+            </div>
+          </div>
+
+          <div class="mt-10 grid md:grid-cols-2 gap-6" id="projectsGrid">
+            <article data-category="automacao fullstack" class="project-card reveal interactive-card glass rounded-2xl p-6 border-slate-700/60">
+              <div class="flex items-center justify-between gap-4">
+                <h3 class="text-xl font-semibold">Te Indica</h3>
+                <span class="text-xs uppercase tracking-wider px-3 py-1 rounded-full bg-accent-500/10 text-accent-300 border border-accent-500/20" data-i18n="projects.featured">Destaque</span>
+              </div>
+              <p class="mt-4 text-slate-300 leading-relaxed" data-i18n="projects.teIndicaDesc">
+                Plataforma de automação de atendimento via WhatsApp com chatbot inteligente, qualificação de leads e gestão de contatos, melhorando velocidade de resposta e eficiência comercial.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2 text-xs text-slate-300">
+                <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700">WhatsApp API</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700">Chatbot</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700">Automação de Leads</span>
+              </div>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="https://github.com/menezesmateuss" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-600 hover:border-slate-400 hover:bg-slate-800/40 transition">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span data-i18n="projects.viewGithub">Ver no GitHub</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="py-16 sm:py-24 border-t border-slate-800/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-10">
+            <div class="reveal">
+              <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="contact.title">Contato</h2>
+              <p class="mt-4 text-slate-300 leading-relaxed" data-i18n="contact.description">
+                Este portfólio apresenta minha trajetória, competências e projetos em Engenharia de Software e Desenvolvimento Full Stack.
+              </p>
+              <div class="mt-6 space-y-3 text-slate-300">
+                <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-accent-400"></i> Belo Horizonte - MG</p>
+                <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-accent-400"></i> (31) 99579-2624</p>
+                <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-accent-400"></i> mateusmenezes@educa-digital.com</p>
+              </div>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="https://www.linkedin.com/in/mateus-menezes-a454752b6/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-slate-600 hover:border-slate-400 hover:bg-slate-800/40 transition inline-flex items-center gap-2">
+                  <i data-lucide="linkedin" class="w-4 h-4"></i>
+                  <span data-i18n="contact.linkedin">LinkedIn</span>
+                </a>
+                <a href="https://github.com/menezesmateuss" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-slate-600 hover:border-slate-400 hover:bg-slate-800/40 transition inline-flex items-center gap-2">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span data-i18n="contact.github">GitHub</span>
+                </a>
+                <a href="mailto:mateusmenezes@educa-digital.com" class="px-4 py-2 rounded-lg border border-slate-600 hover:border-slate-400 hover:bg-slate-800/40 transition inline-flex items-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span data-i18n="contact.email">E-mail</span>
+                </a>
+                <a href="https://wa.me/5531995792624?text=Ol%C3%A1%20Mateus,%20gostaria%20de%20falar%20sobre%20uma%20oportunidade." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 transition inline-flex items-center gap-2">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span data-i18n="contact.whatsapp">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <form id="contactForm" class="glass rounded-2xl p-6 border-slate-700/60 space-y-4">
+                <div>
+                  <label for="nome" class="block text-sm text-slate-300 mb-2" data-i18n="form.name">Nome</label>
+                  <input id="nome" name="nome" type="text" required class="w-full rounded-lg bg-slate-900/70 border border-slate-700 focus:border-accent-400 focus:outline-none px-4 py-3" placeholder="Seu nome" data-i18n-placeholder="form.namePlaceholder" />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm text-slate-300 mb-2" data-i18n="form.email">E-mail</label>
+                  <input id="email" name="email" type="email" required class="w-full rounded-lg bg-slate-900/70 border border-slate-700 focus:border-accent-400 focus:outline-none px-4 py-3" placeholder="voce@email.com" data-i18n-placeholder="form.emailPlaceholder" />
+                </div>
+                <div>
+                  <label for="mensagem" class="block text-sm text-slate-300 mb-2" data-i18n="form.message">Mensagem</label>
+                  <textarea id="mensagem" name="mensagem" rows="5" required class="w-full rounded-lg bg-slate-900/70 border border-slate-700 focus:border-accent-400 focus:outline-none px-4 py-3" placeholder="Me conte sobre seu projeto ou vaga..." data-i18n-placeholder="form.messagePlaceholder"></textarea>
+                </div>
+                <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-5 py-3 rounded-xl bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold transition shadow-glow">
+                  <i data-lucide="send-horizontal" class="w-4 h-4"></i>
+                  <span data-i18n="form.submit">Enviar Mensagem</span>
+                </button>
+                <p class="text-xs text-slate-400" data-i18n="form.note">Ao enviar, seu cliente de e-mail será aberto automaticamente.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-800/70 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p data-i18n="footer.rights">© 2026 Mateus Souza de Menezes. Todos os direitos reservados.</p>
+        <p data-i18n="footer.tagline">Desenvolvido com foco em Engenharia de Software e Full Stack.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const typewriterWords = {
+      pt: [
+        'Desenvolvedor Full Stack',
+        'Especialista em Automação',
+        'Engenheiro de Dados & Scraping'
+      ],
+      en: [
+        'Full Stack Developer',
+        'Automation Specialist',
+        'Data & Scraping Engineer'
+      ]
+    };
+
+    let currentLang = 'pt';
+    let words = typewriterWords[currentLang];
+
+    const i18n = {
+      pt: {
+        'nav.about': 'Sobre',
+        'nav.skills': 'Habilidades',
+        'nav.experience': 'Experiência',
+        'nav.projects': 'Projetos',
+        'nav.contact': 'Contato',
+        'hero.description': 'Crio sistemas escaláveis com foco em performance, automação inteligente e integração entre dados, APIs e experiências digitais.',
+        'hero.download': 'Baixar Currículo PDF',
+        'hero.projects': 'Ver Projetos',
+        'hero.whatsapp': 'Falar no WhatsApp',
+        'metrics.experience': 'Experiência',
+        'metrics.automationsLabel': 'Automações entregues',
+        'metrics.automationsValue': 'Dezenas de soluções',
+        'metrics.mindsetLabel': 'Mentalidade',
+        'metrics.mindsetValue': '100% foco em escalabilidade',
+        'about.title': 'Sobre Mim',
+        'about.p1': 'Sou Desenvolvedor Full Stack com foco sólido em backend, automação de dados e construção de soluções inteligentes para ambientes de alta demanda. Minha atuação combina desenvolvimento de APIs, pipelines escaláveis e automações que eliminam tarefas operacionais repetitivas.',
+        'about.p2': 'Tenho formação técnica em Desenvolvimento de Sistemas pelo COTEMIG e estou cursando Análise e Desenvolvimento de Sistemas na Anhanguera, com conclusão prevista para 2027. Meu objetivo é transformar problemas complexos em produtos confiáveis, rápidos e orientados a resultado.',
+        'skills.title': 'Habilidades Técnicas',
+        'skills.subtitle': 'Stack orientada a performance, integrações e automação avançada.',
+        'skills.languages': 'Linguagens',
+        'skills.backend': 'Ferramentas & Backend',
+        'skills.ai': 'IA & Inovação',
+        'experience.title': 'Experiência Profissional',
+        'experience.subtitle': 'Linha do tempo com foco em backend, dados e automação de processos.',
+        'experience.current': 'Atual',
+        'experience.role': 'Desenvolvedor Backend & Especialista em Automação',
+        'experience.years': '3 anos',
+        'experience.pinionDesc': 'Atuação no desenvolvimento e manutenção de arquiteturas backend e integração de APIs RESTful para sustentar plataforma de inteligência de mercado e dados crowdsourced. Otimização de pipelines automatizados para escalabilidade, integridade e alta disponibilidade.',
+        'experience.priceDesc': 'Desenvolvimento e sustentação de robôs avançados de Web Scraping e crawlers para coleta de dados em larga escala, com automações em n8n e Node.js para eliminar tarefas manuais e acelerar operações.',
+        'projects.title': 'Projetos de Destaque',
+        'projects.subtitle': 'Soluções orientadas a automação e impacto direto no negócio.',
+        'projects.filterAll': 'Todos',
+        'projects.filterAutomation': 'Automação',
+        'projects.filterFullStack': 'Full Stack',
+        'projects.featured': 'Destaque',
+        'projects.teIndicaDesc': 'Plataforma de automação de atendimento via WhatsApp com chatbot inteligente, qualificação de leads e gestão de contatos, melhorando velocidade de resposta e eficiência comercial.',
+        'projects.viewGithub': 'Ver no GitHub',
+        'contact.title': 'Contato',
+        'contact.description': 'Este portfólio apresenta minha trajetória, competências e projetos em Engenharia de Software e Desenvolvimento Full Stack.',
+        'contact.linkedin': 'LinkedIn',
+        'contact.github': 'GitHub',
+        'contact.email': 'E-mail',
+        'contact.whatsapp': 'WhatsApp',
+        'form.name': 'Nome',
+        'form.email': 'E-mail',
+        'form.message': 'Mensagem',
+        'form.namePlaceholder': 'Seu nome',
+        'form.emailPlaceholder': 'voce@email.com',
+        'form.messagePlaceholder': 'Me conte sobre seu projeto ou vaga...',
+        'form.submit': 'Enviar Mensagem',
+        'form.note': 'Ao enviar, seu cliente de e-mail será aberto automaticamente.',
+        'footer.rights': '© 2026 Mateus Souza de Menezes. Todos os direitos reservados.',
+        'footer.tagline': 'Desenvolvido com foco em Engenharia de Software e Full Stack.'
+      },
+      en: {
+        'nav.about': 'About',
+        'nav.skills': 'Skills',
+        'nav.experience': 'Experience',
+        'nav.projects': 'Projects',
+        'nav.contact': 'Contact',
+        'hero.description': 'I build scalable systems focused on performance, intelligent automation, and seamless integration across data, APIs, and digital experiences.',
+        'hero.download': 'Download Resume PDF',
+        'hero.projects': 'View Projects',
+        'hero.whatsapp': 'Chat on WhatsApp',
+        'metrics.experience': 'Experience',
+        'metrics.automationsLabel': 'Delivered automations',
+        'metrics.automationsValue': 'Dozens of solutions',
+        'metrics.mindsetLabel': 'Mindset',
+        'metrics.mindsetValue': '100% focused on scalability',
+        'about.title': 'About Me',
+        'about.p1': 'I am a Full Stack Developer with a strong backend focus, data automation expertise, and experience building intelligent solutions for high-demand environments. My work combines API development, scalable pipelines, and automation that removes repetitive operational effort.',
+        'about.p2': 'I hold a technical degree in Systems Development from COTEMIG and I am pursuing a degree in Systems Analysis and Development at Anhanguera, expected graduation in 2027. My goal is to turn complex problems into reliable, fast, and results-driven products.',
+        'skills.title': 'Technical Skills',
+        'skills.subtitle': 'A stack oriented toward performance, integrations, and advanced automation.',
+        'skills.languages': 'Languages',
+        'skills.backend': 'Tools & Backend',
+        'skills.ai': 'AI & Innovation',
+        'experience.title': 'Professional Experience',
+        'experience.subtitle': 'A timeline focused on backend, data, and process automation.',
+        'experience.current': 'Current',
+        'experience.role': 'Backend Developer & Automation Specialist',
+        'experience.years': '3 years',
+        'experience.pinionDesc': 'Working on backend architecture and RESTful API integrations for a market intelligence and crowdsourced data platform. Optimization of automated data pipelines for scalability, integrity, and high availability.',
+        'experience.priceDesc': 'Developed and maintained advanced web scraping robots and crawlers for large-scale data collection, with n8n and Node.js automations to eliminate manual tasks and speed up operations.',
+        'projects.title': 'Featured Projects',
+        'projects.subtitle': 'Automation-driven solutions with direct business impact.',
+        'projects.filterAll': 'All',
+        'projects.filterAutomation': 'Automation',
+        'projects.filterFullStack': 'Full Stack',
+        'projects.featured': 'Featured',
+        'projects.teIndicaDesc': 'WhatsApp service automation platform with an intelligent chatbot, lead qualification, and contact management, improving response speed and commercial efficiency.',
+        'projects.viewGithub': 'View on GitHub',
+        'contact.title': 'Contact',
+        'contact.description': 'This portfolio presents my background, skills, and projects in Software Engineering and Full Stack development.',
+        'contact.linkedin': 'LinkedIn',
+        'contact.github': 'GitHub',
+        'contact.email': 'Email',
+        'contact.whatsapp': 'WhatsApp',
+        'form.name': 'Name',
+        'form.email': 'Email',
+        'form.message': 'Message',
+        'form.namePlaceholder': 'Your name',
+        'form.emailPlaceholder': 'you@email.com',
+        'form.messagePlaceholder': 'Tell me about your project or role...',
+        'form.submit': 'Send Message',
+        'form.note': 'When submitted, your default email client will open automatically.',
+        'footer.rights': '© 2026 Mateus Souza de Menezes. All rights reserved.',
+        'footer.tagline': 'Built with focus on Software Engineering and Full Stack development.'
+      }
+    };
+
+    const typewriterEl = document.getElementById('typewriter');
+    const langToggleBtn = document.getElementById('langToggle');
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      words = typewriterWords[currentLang];
+      wordIndex = 0;
+      charIndex = 0;
+      deleting = false;
+      typewriterEl.textContent = '';
+
+      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+      langToggleBtn.textContent = currentLang === 'pt' ? 'EN' : 'PT';
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[currentLang][key]) {
+          el.textContent = i18n[currentLang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[currentLang][key]) {
+          el.placeholder = i18n[currentLang][key];
+        }
+      });
+    }
+
+    langToggleBtn.addEventListener('click', () => {
+      applyLanguage(currentLang === 'pt' ? 'en' : 'pt');
+    });
+
+    applyLanguage('pt');
+
+    function typewriterLoop() {
+      const currentWord = words[wordIndex];
+      if (!deleting) {
+        charIndex++;
+      } else {
+        charIndex--;
+      }
+
+      typewriterEl.textContent = currentWord.slice(0, charIndex);
+
+      let delay = deleting ? 45 : 85;
+      if (!deleting && charIndex === currentWord.length) {
+        delay = 1300;
+        deleting = true;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 280;
+      }
+
+      setTimeout(typewriterLoop, delay);
+    }
+
+    typewriterLoop();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId.length <= 1) return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    const cards = document.querySelectorAll('.interactive-card');
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-slate-800/70', 'border-slate-600');
+          b.classList.add('border-slate-700');
+        });
+
+        btn.classList.add('bg-slate-800/70', 'border-slate-600');
+        btn.classList.remove('border-slate-700');
+
+        const filter = btn.dataset.filter;
+
+        projectCards.forEach((card) => {
+          const categories = card.dataset.category || '';
+          const shouldShow = filter === 'all' || categories.includes(filter);
+          card.style.display = shouldShow ? 'block' : 'none';
+        });
+      });
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      const subject = encodeURIComponent('Contato via Portfólio - ' + nome);
+      const body = encodeURIComponent('Nome: ' + nome + '\nE-mail: ' + email + '\n\nMensagem:\n' + mensagem);
+
+      window.location.href = 'mailto:mateusmenezes@educa-digital.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
